@@ -1,0 +1,20 @@
+{
+  "name": "playdate-sdk-feed",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "node bin/build.mjs && npx tailwindcss -o public/style.css --minify"
+  },
+  "author": "Jan T. Sott",
+  "license": "ISC",
+	"dependencies": {},
+  "devDependencies": {
+    "feed": "^4.2.2",
+		"ejs": "^3.1.9",
+		"html-minifier-terser": "^7.1.0",
+    "hast-util-select": "^5.0.5",
+    "rehype-parse": "^8.0.4",
+    "tailwindcss": "^3.2.7",
+    "unified": "^10.1.2"
+  }
+}
