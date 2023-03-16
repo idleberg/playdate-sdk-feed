@@ -53,6 +53,8 @@ function createFeedItems(sections) {
 				?.children[0]?.value?.trim()
 				.replace(/(?!\d{1,2})(st|nd|rd|th)/g, "") || "";
 
+		console.log(section);
+
 		return {
 			version,
 			date: date,
