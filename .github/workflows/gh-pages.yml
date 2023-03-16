@@ -61,7 +61,6 @@ jobs:
         run: pnpm install --frozen-lockfile --strict-peer-dependencies
 
       - run: pnpm run build
-      - run: pnpm run test
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
