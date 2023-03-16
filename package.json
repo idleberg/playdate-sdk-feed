@@ -7,12 +7,12 @@
   },
   "author": "Jan T. Sott",
   "license": "ISC",
-	"dependencies": {},
   "devDependencies": {
+    "ejs": "^3.1.9",
     "feed": "^4.2.2",
-		"ejs": "^3.1.9",
-		"html-minifier-terser": "^7.1.0",
     "hast-util-select": "^5.0.5",
+    "hast-util-to-html": "^8.0.4",
+    "html-minifier-terser": "^7.1.0",
     "rehype-parse": "^8.0.4",
     "tailwindcss": "^3.2.7",
     "unified": "^10.1.2"
