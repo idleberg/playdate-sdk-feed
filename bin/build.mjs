@@ -61,7 +61,7 @@ function createFeedItems(sections) {
 
 	console.timeEnd("Populating feed items");
 
-	return items;
+	return items.slice(0, 10);
 }
 
 async function createFeed(items) {
