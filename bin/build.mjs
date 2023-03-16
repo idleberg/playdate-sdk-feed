@@ -92,8 +92,8 @@ async function createFeed(items) {
 	items.map((item) => {
 		feed.addItem({
 			title: item.version,
-			id: `https://download-keycdn.panic.com/playdate_sdk/PlaydateSDK-${item.version}.zip`,
-			link: `https://download-keycdn.panic.com/playdate_sdk/PlaydateSDK-${item.version}.zip`,
+			id: `https://sdk.play.date/changelog#${item.version}`,
+			link: `https://sdk.play.date/changelog#${item.version}`,
 			description: "",
 			date: new Date(item.date),
 		});
