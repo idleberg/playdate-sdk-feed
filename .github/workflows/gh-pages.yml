@@ -5,12 +5,14 @@ on:
     branches:
     - main
     paths:
+    - '.github/workflows'
     - 'bin/**'
     - 'src/**'
     - 'package.json'
     - 'pnpm-lock.yaml'
   pull_request:
     paths:
+    - '.github/workflows'
     - 'bin/**'
     - 'src/**'
     - 'package.json'
