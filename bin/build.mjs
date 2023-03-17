@@ -6,6 +6,7 @@ import { resolve } from "node:path";
 import { select, selectAll } from "hast-util-select";
 import { unified } from "unified";
 import { version as nodeVersion } from "node:process";
+import { toHtml } from "hast-util-to-html";
 import parse from "rehype-parse";
 
 const htmlMinifyOptions = {
@@ -53,7 +54,12 @@ function createFeedItems(sections) {
 				?.children[0]?.value?.trim()
 				.replace(/(?!\d{1,2})(st|nd|rd|th)/g, "") || "";
 
-		// TODO generate description
+		// Strip empty text elements
+		section.children.map((child, index) => {
+			if (child.type === 'text' && child.value.trim().length === 0) {
+				delete section.children[index];
+			}
+		});
 
 		return {
 			version,
@@ -71,7 +77,7 @@ async function createFeed(items) {
 
 	const feed = new Feed({
 		title: "Playdate SDK Changelog",
-		description: "A missing RSS feed for Playdate SDK updates",
+		description: "The missing feeds for Playdate SDK updates",
 		id: "https://idleberg.github.io/playdate-sdk-feed",
 		link: "https://idleberg.github.io/playdate-sdk-feed",
 		language: "en",
