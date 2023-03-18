@@ -54,16 +54,12 @@ function createFeedItems(sections) {
 				?.children[0]?.value?.trim()
 				.replace(/(?!\d{1,2})(st|nd|rd|th)/g, "") || "";
 
-		// Strip empty text elements
-		section.children.map((child, index) => {
-			if (child.type === 'text' && child.value.trim().length === 0) {
-				delete section.children[index];
-			}
-		});
+		const content = select("ul", section) || null;
 
 		return {
 			version,
-			date: date,
+			date,
+			content: content ? toHtml(content) : null
 		};
 	});
 
@@ -98,9 +94,9 @@ async function createFeed(items) {
 	items.map((item) => {
 		feed.addItem({
 			title: item.version,
-			id: `https://sdk.play.date/changelog#${item.version}`,
-			link: `https://sdk.play.date/changelog#${item.version}`,
-			description: "",
+			id: `https://play.date/dev#${item.version}`,
+			link: `https://play.date/dev#${item.version}`,
+			description: item.content,
 			date: new Date(item.date),
 		});
 	});
