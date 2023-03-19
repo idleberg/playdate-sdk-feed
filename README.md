@@ -1,6 +1,6 @@
 # 🕹 playdate-sdk-feed
 
-> The missing feeds for Playdate SDK updates.
+> The missing feed for Playdate SDK updates.
 
 [![Build](https://img.shields.io/github/actions/workflow/status/idleberg/playdate-sdk-feed/gh-pages.yml?style=for-the-badge)](https://github.com/idleberg/playdate-sdk-feed/releases)
 
