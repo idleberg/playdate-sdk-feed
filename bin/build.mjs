@@ -93,7 +93,7 @@ async function createFeed(items) {
 
 	items.map((item) => {
 		feed.addItem({
-			title: item.version,
+			title: `Playdate SDK v${item.version}`,
 			id: `https://play.date/dev#${item.version}`,
 			link: `https://play.date/dev#${item.version}`,
 			description: item.content,
