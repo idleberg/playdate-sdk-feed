@@ -1,4 +1,4 @@
-# 🕹 Playdate SDK Feed
+# 🕹 playdate-sdk-feed
 
 > The missing feeds for Playdate SDK updates.
 
