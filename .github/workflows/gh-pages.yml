@@ -10,6 +10,7 @@ on:
     - 'src/**'
     - 'package.json'
     - 'pnpm-lock.yaml'
+
   pull_request:
     paths:
     - '.github/workflows'
@@ -17,9 +18,11 @@ on:
     - 'src/**'
     - 'package.json'
     - 'pnpm-lock.yaml'
-  workflow_dispatch:
+
   schedule:
     - cron: '30 * * * *'
+  
+  workflow_dispatch:
 
 permissions:
   contents: read
