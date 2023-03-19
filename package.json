@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "node bin/build.mjs && npx tailwindcss -o public/style.css --minify"
+    "build": "npm-run-all --parallel build:*",
+    "build:page": "node bin/build.mjs",
+    "build:style": "npx tailwindcss -o public/style.css --minify"
   },
   "author": "Jan T. Sott",
   "license": "ISC",
@@ -13,6 +15,7 @@
     "hast-util-select": "^5.0.5",
     "hast-util-to-html": "^8.0.4",
     "html-minifier-terser": "^7.1.0",
+    "npm-run-all2": "^6.0.4",
     "rehype-parse": "^8.0.4",
     "tailwindcss": "^3.2.7",
     "unified": "^10.1.2"
