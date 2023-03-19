@@ -5,7 +5,7 @@ on:
     branches:
     - main
     paths:
-    - '.github/workflows'
+    - '.github/workflows/**'
     - 'bin/**'
     - 'src/**'
     - 'package.json'
@@ -13,7 +13,7 @@ on:
 
   pull_request:
     paths:
-    - '.github/workflows'
+    - '.github/workflows/**'
     - 'bin/**'
     - 'src/**'
     - 'package.json'
