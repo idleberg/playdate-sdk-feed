@@ -19,7 +19,7 @@ on:
     - 'pnpm-lock.yaml'
   workflow_dispatch:
   schedule:
-  - cron: '0,* * * * *'
+  - cron: '0 */2 * * *'
 
 permissions:
   contents: read
