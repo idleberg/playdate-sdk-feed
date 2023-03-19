@@ -18,6 +18,8 @@ on:
     - 'package.json'
     - 'pnpm-lock.yaml'
   workflow_dispatch:
+  schedule:
+  - cron: '0,* * * * *'
 
 permissions:
   contents: read
