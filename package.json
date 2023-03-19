@@ -5,7 +5,7 @@
 	"description": "The missing feed for Playdate SDK updates",
   "scripts": {
     "build": "npm-run-all --parallel build:*",
-    "build:page": "node bin/buld.mjs",
+    "build:page": "node bin/build.mjs",
     "build:style": "npx tailwindcss -o public/style.css --minify"
   },
   "author": "Jan T. Sott",
