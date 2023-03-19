@@ -54,7 +54,7 @@ function createFeedItems(sections) {
 				?.children[0]?.value?.trim()
 				.replace(/(?!\d{1,2})(st|nd|rd|th)/g, "") || "";
 
-		const content = select("ul", section) || null;
+		const content = section.children.filter(item => item.tagName === 'h3' || item.tagName === 'ul') || null;
 
 		return {
 			version,
