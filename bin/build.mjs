@@ -94,8 +94,8 @@ async function createFeed(items) {
 	items.map((item) => {
 		feed.addItem({
 			title: `Playdate SDK v${item.version}`,
-			id: `https://play.date/dev#${item.version}`,
-			link: `https://play.date/dev#${item.version}`,
+			id: `https://sdk.play.date/changelog#${item.version}`,
+			link: `https://sdk.play.date/changelog#${item.version}`,
 			description: item.content,
 			date: new Date(item.date),
 		});
