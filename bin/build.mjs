@@ -81,9 +81,9 @@ async function createFeed(items) {
 		copyright: "Public Domain",
 		updated: new Date(items[0].date),
 		feedLinks: {
-			atom: "https://idleberg.github.io/playdate-sdk-feed/atom",
-			json: "https://idleberg.github.io/playdate-sdk-feed/json",
-			rss: "https://idleberg.github.io/playdate-sdk-feed/rss",
+			atom: "https://idleberg.github.io/playdate-sdk-feed/feed.atom",
+			json: "https://idleberg.github.io/playdate-sdk-feed/feed.json",
+			rss: "https://idleberg.github.io/playdate-sdk-feed/feed.rss",
 		},
 		author: {
 			name: "idleberg",
@@ -107,9 +107,19 @@ async function createFeed(items) {
 		console.warn("Output path exists");
 	}
 
-	await fs.writeFile("public/atom", feed.atom1(), "utf-8");
-	await fs.writeFile("public/json", feed.json1(), "utf-8");
-	await fs.writeFile("public/rss", feed.rss2(), "utf-8");
+	const feeds = {
+		atom: feed.atom1(),
+		json: feed.json1(),
+		rss: feed.rss2()
+	}
+	await fs.writeFile("public/feed.atom", feeds.atom, "utf-8");
+	await fs.writeFile("public/feed.json", feeds.json, "utf-8");
+	await fs.writeFile("public/feed.rss", feeds.rss, "utf-8");
+	
+	// backwards compatibility
+	await fs.writeFile("public/atom", feeds.atom, "utf-8");
+	await fs.writeFile("public/json", feeds.json, "utf-8");
+	await fs.writeFile("public/rss", feeds.rss, "utf-8");
 
 	console.timeEnd("Creating feeds");
 }
