@@ -16,3 +16,6 @@ block_comment_end = */
 
 [*.md]
 trim_trailing_whitespace = false
+
+[*.yml]
+indent_style = space
