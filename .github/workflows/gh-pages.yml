@@ -94,3 +94,9 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v1
 
+      - name: Keep workflow alive
+        uses: gautamkrishnar/keepalive-workflow@v1
+        with:
+          commit_message: 'keep alive'
+          committer_username: 'GitHub Action'
+          committer_email: 'action@users.noreply.github.com'
