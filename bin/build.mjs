@@ -39,7 +39,7 @@ async function getChangelog() {
 
 	const html = await response.text();
 	const htmlPageTree = unified().use(parse).parse(html);
-	const sections = selectAll(`section`, htmlPageTree);
+	const sections = selectAll(`#content .sect1`, htmlPageTree);
 
 	return sections;
 }
@@ -50,7 +50,7 @@ function createFeedItems(sections) {
 	const items = sections.map((section) => {
 		const version = select("h2", section)?.children[0]?.value?.trim() || "";
 		const date =
-			select("h2 + p", section)
+			select(".sectionbody .paragraph p", section)
 				?.children[0]?.value?.trim()
 				.replace(/(?!\d{1,2})(st|nd|rd|th)/g, "") || "";
 
