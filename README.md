@@ -2,7 +2,7 @@
 
 > The missing feed for Playdate SDK updates.
 
-[![Build](https://img.shields.io/github/actions/workflow/status/idleberg/playdate-sdk-feed/gh-pages.yml?style=for-the-badge)](https://github.com/idleberg/playdate-sdk-feed/releases)
+[![Build](https://img.shields.io/github/actions/workflow/status/idleberg/playdate-sdk-feed/gh-pages.yml?style=for-the-badge)](https://github.com/idleberg/playdate-sdk-feed/actions)
 
 The feed is available in these flavours:
 
