@@ -134,9 +134,9 @@ async function createFeed(items) {
 		date: new Date()
 	});
 
-	const anchorVersion = `_${item.version.split('.').join('_')}`;
-
 	items.map((item) => {
+		const anchorVersion = `_${item.version.split('.').join('_')}`;
+
 		feed.addItem({
 			title: `Playdate SDK v${item.version}`,
 			id: item.version,
