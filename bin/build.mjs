@@ -134,11 +134,13 @@ async function createFeed(items) {
 		date: new Date()
 	});
 
+	const anchorVersion = `_${item.version.split('.').join('_')}`;
+
 	items.map((item) => {
 		feed.addItem({
 			title: `Playdate SDK v${item.version}`,
 			id: item.version,
-			link: `https://sdk.play.date/changelog#:~:text=${item.version}`,
+			link: `https://sdk.play.date/changelog#${anchorVersion}`,
 			description: item.content,
 			date: new Date(item.date),
 		});
@@ -147,7 +149,7 @@ async function createFeed(items) {
 		legacyFeed.addItem({
 			title: `Playdate SDK v${item.version}`,
 			id: item.version,
-			link: `https://sdk.play.date/changelog#:~:text=${item.version}`,
+			link: `https://sdk.play.date/changelog#${anchorVersion}`,
 			description: item.content,
 			date: new Date(item.date),
 		});
