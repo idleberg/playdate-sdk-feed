@@ -78,3 +78,4 @@ jobs:
           commit_message: 'keep alive'
           committer_username: 'GitHub Action'
           committer_email: 'action@users.noreply.github.com'
+          gh_token: '${{ secrets.GITHUB_TOKEN }}'
