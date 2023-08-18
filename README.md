@@ -6,9 +6,17 @@
 
 The feed is available in these flavours:
 
-- `https://idleberg.github.io/playdate-sdk-feed/feed.atom`
-- `https://idleberg.github.io/playdate-sdk-feed/feed.json`
-- `https://idleberg.github.io/playdate-sdk-feed/feed.rss`
+```
+https://idleberg.github.io/playdate-sdk-feed/feed.atom
+```
+
+```
+https://idleberg.github.io/playdate-sdk-feed/feed.json
+```
+
+```
+https://idleberg.github.io/playdate-sdk-feed/feed.rss
+```
 
 ## Self-hosted
 
