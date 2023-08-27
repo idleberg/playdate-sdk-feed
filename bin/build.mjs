@@ -91,62 +91,10 @@ async function createFeed(items) {
 		},
 	});
 
-	// TODO remove after July 21, 2023
-	const legacyFeed = new Feed({
-		title: "Playdate SDK Changelog",
-		description: "The missing feeds for Playdate SDK updates",
-		id: "https://idleberg.github.io/playdate-sdk-feed",
-		link: "https://idleberg.github.io/playdate-sdk-feed",
-		language: "en",
-		generator: `NodeJS v${nodeVersion}`,
-		copyright: "Public Domain",
-		updated: new Date(items[0].date),
-		feedLinks: {
-			atom: "https://idleberg.github.io/playdate-sdk-feed/feed.atom",
-			json: "https://idleberg.github.io/playdate-sdk-feed/feed.json",
-			rss: "https://idleberg.github.io/playdate-sdk-feed/feed.rss",
-		},
-		author: {
-			name: "idleberg",
-			link: "https://github.com/idleberg",
-		},
-	});
-
-	// TODO remove after July 21, 2023
-	legacyFeed.addItem({
-		title: 'Deprecation Notice',
-		id: 'urlMigration.v1',
-		link: 'https://github.com/idleberg/playdate-sdk-feed/commit/fbdced2bc1d9ecf74fbd07819ba6e5e37b507469',
-		description: `
-			<p>To avoid problems with MIME-types, the URLs for all feeds have been changed. Some clients might actually handle this transition
-			automatically based on the provided feed links. However, you might have to edit your subscriptions manually.</p>
-
-			<p>The new feed URLs here:</p>
-
-			<ul>
-				<li><a href="https://idleberg.github.io/playdate-sdk-feed/feed.atom">https://idleberg.github.io/playdate-sdk-feed/feed.atom</a></li>
-				<li><a href="https://idleberg.github.io/playdate-sdk-feed/feed.json">https://idleberg.github.io/playdate-sdk-feed/feed.json</a></li>
-				<li><a href="https://idleberg.github.io/playdate-sdk-feed/feed.rss">https://idleberg.github.io/playdate-sdk-feed/feed.rss</a></li>
-			</ul>
-
-			<p>The old URLs will be deleted on July 21, 2023. Sorry for causing any inconveniences.</p>
-		`.trim(),
-		date: new Date()
-	});
-
 	items.map((item) => {
 		const anchorVersion = `_${item.version.split('.').join('_')}`;
 
 		feed.addItem({
-			title: `Playdate SDK v${item.version}`,
-			id: item.version,
-			link: `https://sdk.play.date/changelog#${anchorVersion}`,
-			description: item.content,
-			date: new Date(item.date),
-		});
-
-		// TODO remove after July 21, 2023
-		legacyFeed.addItem({
 			title: `Playdate SDK v${item.version}`,
 			id: item.version,
 			link: `https://sdk.play.date/changelog#${anchorVersion}`,
@@ -170,11 +118,6 @@ async function createFeed(items) {
 	await fs.writeFile("public/feed.atom", feeds.atom, "utf-8");
 	await fs.writeFile("public/feed.json", feeds.json, "utf-8");
 	await fs.writeFile("public/feed.rss", feeds.rss, "utf-8");
-	
-	// TODO remove after July 21, 2023
-	await fs.writeFile("public/atom", legacyFeed.atom1(), "utf-8");
-	await fs.writeFile("public/json", legacyFeed.json1(), "utf-8");
-	await fs.writeFile("public/rss", legacyFeed.rss2(), "utf-8");
 
 	console.timeEnd("Creating feeds");
 }
