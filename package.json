@@ -2,7 +2,7 @@
   "name": "playdate-sdk-feed",
   "version": "0.0.0",
   "private": true,
-	"description": "The missing feed for Playdate SDK updates",
+  "description": "The missing feed for Playdate SDK updates",
   "scripts": {
     "build": "npm-run-all --parallel build:*",
     "build:page": "node bin/build.mjs",
@@ -15,10 +15,10 @@
     "feed": "^4.2.2",
     "hast-util-select": "^5.0.5",
     "hast-util-to-html": "^8.0.4",
-    "html-minifier-terser": "^7.1.0",
-    "npm-run-all2": "^6.0.4",
-    "rehype-parse": "^8.0.4",
-    "tailwindcss": "^3.2.7",
+    "html-minifier-terser": "^7.2.0",
+    "npm-run-all2": "^6.0.6",
+    "rehype-parse": "^8.0.5",
+    "tailwindcss": "^3.3.3",
     "unified": "^10.1.2"
   }
 }
