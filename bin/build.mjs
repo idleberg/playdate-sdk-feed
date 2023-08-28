@@ -92,6 +92,10 @@ async function createFeed(items) {
 	});
 
 	items.map((item) => {
+		if (new Date(item.date).toString() === 'Invalid Date')  {
+			return;
+		}
+
 		const anchorVersion = `_${item.version.split('.').join('_')}`;
 
 		feed.addItem({
