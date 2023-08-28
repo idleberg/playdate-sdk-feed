@@ -56,7 +56,7 @@ jobs:
           run_install: |
             - recursive: true
               args: [--frozen-lockfile, --strict-peer-dependencies]
-          version: 7
+          version: 8
 
       - run: pnpm run build
 
