@@ -8,7 +8,7 @@ on:
     - 'bin/**'
     - 'src/**'
     - 'package.json'
-    - 'pnpm-lock.yaml'
+    - 'bun.lockb'
 
   pull_request:
     paths:
@@ -16,7 +16,7 @@ on:
     - 'bin/**'
     - 'src/**'
     - 'package.json'
-    - 'pnpm-lock.yaml'
+    - 'bun.lockb'
 
   schedule:
     - cron: '30 * * * *'
@@ -44,21 +44,16 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: Setup Node
-        uses: actions/setup-node@5e21ff4d9bc1a8cf6de233a3057d20ec6b3fb69d # v3.8.1
+      - name: SetupB Bun
+        uses: oven-sh/setup-bun@a1800f471a0bc25cddac36bb13e6f436ddf341d7 # v1
         with:
-          node-version: '*'
+          bun-version: latest
 
-      - uses: pnpm/action-setup@d882d12c64e032187b2edb46d3a0d003b7a43598 # v2.4.0
-        name: Install pnpm
-        id: pnpm-install
-        with:
-          run_install: |
-            - recursive: true
-              args: [--frozen-lockfile, --strict-peer-dependencies]
-          version: 8
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
 
-      - run: pnpm run build
+      - name: Build Source
+        run: bun run build
 
       - name: Setup Pages
         uses: actions/configure-pages@f156874f8191504dae5b037505266ed5dda6c382 # v3.0.6
