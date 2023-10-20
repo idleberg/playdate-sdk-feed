@@ -44,7 +44,7 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: SetupB Bun
+      - name: Setup Bun
         uses: oven-sh/setup-bun@a1800f471a0bc25cddac36bb13e6f436ddf341d7 # v1
         with:
           bun-version: latest
