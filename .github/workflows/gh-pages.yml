@@ -67,10 +67,10 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@f27bcc15848fdcdcc02f01754eb838e44bcf389b # v1.2.9
 
-      - name: Keep workflow alive
-        uses: gautamkrishnar/keepalive-workflow@790c7f09285a59b09bb578c85e271c6ff2af97c4 # v1.1.0
-        with:
-          commit_message: 'keep alive'
-          committer_username: 'GitHub Action'
-          committer_email: 'action@users.noreply.github.com'
-          gh_token: '${{ secrets.GITHUB_TOKEN }}'
+      # - name: Keep workflow alive
+      #   uses: gautamkrishnar/keepalive-workflow@790c7f09285a59b09bb578c85e271c6ff2af97c4 # v1.1.0
+      #   with:
+      #     commit_message: 'keep alive'
+      #     committer_username: 'GitHub Action'
+      #     committer_email: 'action@users.noreply.github.com'
+      #     gh_token: '${{ secrets.GITHUB_TOKEN }}'
