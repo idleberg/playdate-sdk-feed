@@ -22,7 +22,10 @@ async function main() {
 	const feedItems = createFeedItems(sections);
 
 	createFeed(feedItems);
-	await createPage();
+
+	const latestVersion = feedItems[0].version;
+
+	await createPage(latestVersion);
 }
 
 await main();
@@ -126,7 +129,7 @@ async function createFeed(items) {
 	console.timeEnd("Creating feeds");
 }
 
-async function createPage() {
+async function createPage(version) {
 	console.time("Creating page");
 
 	const templateFile = resolve("./src/template.ejs");
@@ -135,7 +138,7 @@ async function createPage() {
 	const template = (await fs.readFile(templateFile)).toString();
 	const icon = (await fs.readFile(iconFile)).toString();
 
-	const html = await htmlMinify(render(template), htmlMinifyOptions);
+	const html = await htmlMinify(render(template, { version }), htmlMinifyOptions);
 	const favicon = await htmlMinify(icon, {
 		...htmlMinifyOptions,
 		removeAttributeQuotes: false,
