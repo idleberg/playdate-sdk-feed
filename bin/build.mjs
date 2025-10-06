@@ -1,10 +1,10 @@
-import { Feed } from "feed";
-import { promises as fs } from "node:fs";
-import { select, selectAll } from "hast-util-select";
-import { unified } from "unified";
-import { version as nodeVersion } from "node:process";
-import { toHtml } from "hast-util-to-html";
-import parse from "rehype-parse";
+import { promises as fs } from 'node:fs';
+import { version as nodeVersion } from 'node:process';
+import { Feed } from 'feed';
+import { select, selectAll } from 'hast-util-select';
+import { toHtml } from 'hast-util-to-html';
+import parse from 'rehype-parse';
+import { unified } from 'unified';
 
 async function main() {
 	console.log(/* let it breathe */);
@@ -13,16 +13,14 @@ async function main() {
 	const feedItems = createFeedItems(sections);
 
 	createFeed(feedItems);
-
-	// const latestVersion = feedItems[0].version;
 }
 
 await main();
 
 async function getChangelog() {
-	console.time("Downloading changelog");
-	const response = await fetch("https://sdk.play.date/changelog/");
-	console.timeEnd("Downloading changelog");
+	console.time('Downloading changelog');
+	const response = await fetch('https://sdk.play.date/changelog/');
+	console.timeEnd('Downloading changelog');
 
 	if (!response.ok) {
 		console.log(response.statusText);
@@ -31,60 +29,60 @@ async function getChangelog() {
 
 	const html = await response.text();
 	const htmlPageTree = unified().use(parse).parse(html);
-	const sections = selectAll(`#content .sect1`, htmlPageTree);
+	const sections = selectAll('#content .sect1', htmlPageTree);
 
 	return sections;
 }
 
 function createFeedItems(sections) {
-	console.time("Populating feed items");
+	console.time('Populating feed items');
 
 	const items = sections.map((section) => {
-		const version = select("h2", section)?.children[0]?.value?.trim() || "";
+		const version = select('h2', section)?.children[0]?.value?.trim() || '';
 		const date =
-			select(".sectionbody .paragraph p", section)
+			select('.sectionbody .paragraph p', section)
 				?.children[0]?.value?.trim()
-				.replace(/(?!\d{1,2})(st|nd|rd|th)/g, "") || "";
+				.replace(/(?!\d{1,2})(st|nd|rd|th)/g, '') || '';
 
 		const content = select('.sectionbody', section);
 
 		return {
 			version,
 			date,
-			content: content ? toHtml(content) : null
+			content: content ? toHtml(content) : null,
 		};
 	});
 
-	console.timeEnd("Populating feed items");
+	console.timeEnd('Populating feed items');
 
 	return items.slice(0, 10);
 }
 
 async function createFeed(items) {
-	console.time("Creating feeds");
+	console.time('Creating feeds');
 
 	const feed = new Feed({
-		title: "Playdate SDK Changelog",
-		description: "The missing feeds for Playdate SDK updates",
-		id: "https://idleberg.github.io/playdate-sdk-feed",
-		link: "https://idleberg.github.io/playdate-sdk-feed",
-		language: "en",
+		title: 'Playdate SDK Changelog',
+		description: 'The missing feeds for Playdate SDK updates',
+		id: 'https://idleberg.github.io/playdate-sdk-feed',
+		link: 'https://idleberg.github.io/playdate-sdk-feed',
+		language: 'en',
 		generator: `NodeJS v${nodeVersion}`,
-		copyright: "Public Domain",
+		copyright: 'Public Domain',
 		updated: new Date(items[0].date),
 		feedLinks: {
-			atom: "https://idleberg.github.io/playdate-sdk-feed/feed.atom",
-			json: "https://idleberg.github.io/playdate-sdk-feed/feed.json",
-			rss: "https://idleberg.github.io/playdate-sdk-feed/feed.rss",
+			atom: 'https://idleberg.github.io/playdate-sdk-feed/feed.atom',
+			json: 'https://idleberg.github.io/playdate-sdk-feed/feed.json',
+			rss: 'https://idleberg.github.io/playdate-sdk-feed/feed.rss',
 		},
 		author: {
-			name: "idleberg",
-			link: "https://github.com/idleberg",
+			name: 'idleberg',
+			link: 'https://github.com/idleberg',
 		},
 	});
 
-	items.map((item) => {
-		if (new Date(item.date).toString() === 'Invalid Date')  {
+	items.forEach((item) => {
+		if (new Date(item.date).toString() === 'Invalid Date') {
 			return;
 		}
 
@@ -98,22 +96,22 @@ async function createFeed(items) {
 			date: new Date(item.date),
 		});
 	});
-	
+
 	try {
-		await fs.mkdir("public");
-	} catch (error) {
-		console.warn("Output path exists");
+		await fs.mkdir('public');
+	} catch {
+		console.warn('Output path exists');
 	}
 
 	const feeds = {
 		atom: feed.atom1(),
 		json: feed.json1(),
-		rss: feed.rss2()
+		rss: feed.rss2(),
 	};
 
-	await fs.writeFile("public/feed.atom", feeds.atom, "utf-8");
-	await fs.writeFile("public/feed.json", feeds.json, "utf-8");
-	await fs.writeFile("public/feed.rss", feeds.rss, "utf-8");
+	await fs.writeFile('public/feed.atom', feeds.atom, 'utf-8');
+	await fs.writeFile('public/feed.json', feeds.json, 'utf-8');
+	await fs.writeFile('public/feed.rss', feeds.rss, 'utf-8');
 
-	console.timeEnd("Creating feeds");
+	console.timeEnd('Creating feeds');
 }

@@ -9,6 +9,7 @@
 		"build": "npm-run-all --serial build:feed build:page",
 		"build:page": "astro build",
 		"build:feed": "node bin/build.mjs",
+		"check": "biome check",
 		"prepare": "lefthook install",
 		"preview": "astro preview",
 		"astro": "astro"
