@@ -20,11 +20,11 @@
 		"tailwindcss": "^4.1.13"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^19.8.1",
-		"@commitlint/config-conventional": "^19.8.1",
+		"@commitlint/cli": "^20.1.0",
+		"@commitlint/config-conventional": "^20.0.0",
 		"@idleberg/configs": "^0.3.1",
-		"@idleberg/vite-plugin-devcert": "^0.3.2",
-		"feed": "^4.2.2",
+		"@idleberg/vite-plugin-devcert": "^0.4.0",
+		"feed": "^5.1.0",
 		"hast-util-select": "^6.0.1",
 		"hast-util-to-html": "^9.0.0",
 		"npm-run-all2": "^8.0.4",
