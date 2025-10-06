@@ -1,7 +1,8 @@
 ---
 import './global.css';
-import feed from
+import feed from '../../public/feed.json';
 
+// biome-ignore lint: Biome doesn't understand Astro yet
 const version = feed.items[0].id;
 ---
 

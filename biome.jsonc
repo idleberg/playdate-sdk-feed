@@ -1,6 +1,6 @@
 {
 	"extends": ["@idleberg/configs/biome"],
 	"files": {
-		"includes": ["**", "!.astro", "!public/feed.*", "!**/*.astro"]
+		"includes": ["**", "!.astro", "!public/feed.*"]
 	}
 }

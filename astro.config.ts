@@ -1,3 +1,4 @@
+import devcert from '@idleberg/vite-plugin-devcert';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
 
@@ -6,6 +7,6 @@ export default defineConfig({
 	base: '/playdate-sdk-feed/',
 	output: 'static',
 	vite: {
-		plugins: [tailwindcss()],
+		plugins: [devcert(), tailwindcss()],
 	},
 });
