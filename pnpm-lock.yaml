@@ -28,8 +28,8 @@ importers:
         specifier: ^0.3.1
         version: 0.3.1
       '@idleberg/vite-plugin-devcert':
-        specifier: ^0.4.0
-        version: 0.4.0(@expo/devcert@1.2.0)(vite@6.3.6(@types/node@24.7.0)(jiti@2.6.1)(lightningcss@1.30.1)(terser@5.44.0))
+        specifier: ^0.4.1
+        version: 0.4.1(@expo/devcert@1.2.0)(vite@6.3.6(@types/node@24.7.0)(jiti@2.6.1)(lightningcss@1.30.1)(terser@5.44.0))
       feed:
         specifier: ^5.1.0
         version: 5.1.0
@@ -385,8 +385,8 @@ packages:
   '@idleberg/configs@0.3.1':
     resolution: {integrity: sha512-Mo3Q4vkjtvDZzw+0jvCVyAc/ykXJQSZfS3izXU7ggHJckW/DodBPdlPqDLNv6gXASKt1oiiZj/Abb9yztn7zsg==}
 
-  '@idleberg/vite-plugin-devcert@0.4.0':
-    resolution: {integrity: sha512-ExvwZw1JHdg7UeURLSB2mDkPEF1LgtjVlHoi96qtYhoT+0xl6+yyERTA/HJS62awpk9hlc8JG+Iy9pbkwW99qA==}
+  '@idleberg/vite-plugin-devcert@0.4.1':
+    resolution: {integrity: sha512-erG4W3REBUvVdQcv86jIpR1O86hWKIldijMMCXD8NV5epirB3G099f/GbIgFadmRgj84mJgBKgGWZQJafSTshQ==}
     engines: {node: ^20.19.0 || >=22.12.0}
     peerDependencies:
       '@expo/devcert': ^1.2.0
@@ -2666,7 +2666,7 @@ snapshots:
       '@total-typescript/tsconfig': 1.0.4
       lefthook: 1.13.6
 
-  '@idleberg/vite-plugin-devcert@0.4.0(@expo/devcert@1.2.0)(vite@6.3.6(@types/node@24.7.0)(jiti@2.6.1)(lightningcss@1.30.1)(terser@5.44.0))':
+  '@idleberg/vite-plugin-devcert@0.4.1(@expo/devcert@1.2.0)(vite@6.3.6(@types/node@24.7.0)(jiti@2.6.1)(lightningcss@1.30.1)(terser@5.44.0))':
     dependencies:
       '@expo/devcert': 1.2.0
       boxen: 8.0.1
