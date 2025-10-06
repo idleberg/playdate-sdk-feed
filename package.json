@@ -15,7 +15,6 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"@tailwindcss/vite": "^4.1.13",
 		"astro": "^5.13.5",
 		"tailwindcss": "^4.1.13"
 	},
@@ -24,6 +23,7 @@
 		"@commitlint/config-conventional": "^20.0.0",
 		"@idleberg/configs": "^0.3.1",
 		"@idleberg/vite-plugin-devcert": "^0.4.1",
+		"@tailwindcss/vite": "^4.1.13",
 		"feed": "^5.1.0",
 		"hast-util-select": "^6.0.1",
 		"hast-util-to-html": "^9.0.0",
