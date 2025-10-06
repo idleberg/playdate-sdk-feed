@@ -1,24 +1,33 @@
 {
-  "name": "playdate-sdk-feed",
-  "version": "0.0.0",
-  "private": true,
-  "description": "The missing feed for Playdate SDK updates",
-  "scripts": {
-    "build": "npm-run-all --parallel build:*",
-    "build:page": "node bin/build.mjs",
-    "build:style": "npx tailwindcss -o public/style.css --minify"
-  },
-  "author": "Jan T. Sott",
-  "license": "ISC",
-  "devDependencies": {
-    "ejs": "^3.1.9",
-    "feed": "^4.2.2",
-    "hast-util-select": "^6.0.1",
-    "hast-util-to-html": "^9.0.0",
-    "html-minifier-terser": "^7.2.0",
-    "npm-run-all2": "^6.1.1",
-    "rehype-parse": "^9.0.0",
-    "tailwindcss": "^3.3.3",
-    "unified": "^11.0.3"
-  }
+	"name": "playdate-sdk-feed",
+	"private": true,
+	"author": "Jan T. Sott",
+	"license": "MIT",
+	"type": "module",
+	"scripts": {
+		"dev": "astro dev --open",
+		"build": "npm-run-all --serial build:feed build:page",
+		"build:page": "astro build",
+		"build:feed": "node bin/build.mjs",
+		"prepare": "lefthook install",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"dependencies": {
+		"@tailwindcss/vite": "^4.1.13",
+		"astro": "^5.13.5",
+		"tailwindcss": "^4.1.13"
+	},
+	"devDependencies": {
+		"@commitlint/cli": "^19.8.1",
+		"@commitlint/config-conventional": "^19.8.1",
+		"@idleberg/configs": "^0.3.1",
+		"feed": "^4.2.2",
+		"hast-util-select": "^6.0.1",
+		"hast-util-to-html": "^9.0.0",
+		"npm-run-all2": "^8.0.4",
+		"rehype-parse": "^9.0.0",
+		"typescript": "^5.0.0",
+		"unified": "^11.0.3"
+	}
 }

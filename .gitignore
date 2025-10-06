@@ -1,2 +1,6 @@
 node_modules/
-public/
+pnpm-lock.yaml
+
+# build
+dist/
+public/feed.*

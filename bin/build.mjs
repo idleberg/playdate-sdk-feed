@@ -1,19 +1,10 @@
 import { Feed } from "feed";
-import { minify as htmlMinify } from "html-minifier-terser";
 import { promises as fs } from "node:fs";
-import { render } from "ejs";
-import { resolve } from "node:path";
 import { select, selectAll } from "hast-util-select";
 import { unified } from "unified";
 import { version as nodeVersion } from "node:process";
 import { toHtml } from "hast-util-to-html";
 import parse from "rehype-parse";
-
-const htmlMinifyOptions = {
-	collapseWhitespace: true,
-	removeAttributeQuotes: true,
-	removeComments: true,
-};
 
 async function main() {
 	console.log(/* let it breathe */);
@@ -23,9 +14,7 @@ async function main() {
 
 	createFeed(feedItems);
 
-	const latestVersion = feedItems[0].version;
-
-	await createPage(latestVersion);
+	// const latestVersion = feedItems[0].version;
 }
 
 await main();
@@ -127,25 +116,4 @@ async function createFeed(items) {
 	await fs.writeFile("public/feed.rss", feeds.rss, "utf-8");
 
 	console.timeEnd("Creating feeds");
-}
-
-async function createPage(version) {
-	console.time("Creating page");
-
-	const templateFile = resolve("./src/template.ejs");
-	const iconFile = resolve("./src/favicon.svg");
-
-	const template = (await fs.readFile(templateFile)).toString();
-	const icon = (await fs.readFile(iconFile)).toString();
-
-	const html = await htmlMinify(render(template, { version }), htmlMinifyOptions);
-	const favicon = await htmlMinify(icon, {
-		...htmlMinifyOptions,
-		removeAttributeQuotes: false,
-	});
-
-	await fs.writeFile("public/favicon.svg", favicon);
-	await fs.writeFile("public/index.html", html);
-
-	console.timeEnd("Creating page");
 }
