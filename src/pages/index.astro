@@ -1,5 +1,4 @@
 ---
-import './global.css';
 import feed from '../../public/feed.json';
 
 const version = feed.items[0].id;
@@ -16,7 +15,6 @@ const version = feed.items[0].id;
 		<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.atom" />
 		<link rel="alternate" type="application/json" title="JSON Feed" href="/feed.json" />
 		<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.rss" />
-		<link rel="stylesheet" href="style.css">
   </head>
   <body class="flex flex-col bg-grey-lighter dark:bg-gray-800  h-screen font-sans">
     <main class="container mx-auto h-full flex justify-center items-center">
