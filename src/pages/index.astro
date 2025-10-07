@@ -1,5 +1,5 @@
 ---
-import './global.css';
+import '../global.css';
 import feed from '../../public/feed.json';
 
 // biome-ignore lint: Biome doesn't understand Astro yet
@@ -18,7 +18,7 @@ const version = feed.items[0].id;
 		<link rel="alternate" type="application/json" title="JSON Feed" href="/feed.json" />
 		<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.rss" />
   </head>
-  <body class="flex flex-col bg-grey-lighter dark:bg-gray-800  h-screen font-sans">
+  <body class="flex flex-col bg-grey-lighter dark:bg-gray-800 h-screen font-sans">
     <main class="container mx-auto h-full flex justify-center items-center">
       <div class="mx-5 w-full lg:w-2/3 md:mx-0">
 
