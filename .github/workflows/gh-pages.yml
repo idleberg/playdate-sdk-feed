@@ -3,7 +3,11 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [gh-pages]
+
   workflow_dispatch:
+
+  schedule:
+    - cron: '30 * * * *'
 
 permissions:
   contents: read
